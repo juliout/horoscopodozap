@@ -3,7 +3,9 @@ import Footer from './components/Footer'
 import {BannerDiv, ComoFuncionaDiv, PerguntasDiv, IndicarBannerDiv, RestInfoDiv} from './homeStyled'
 
 import { BsFillShareFill} from 'react-icons/bs'
-import {RiArrowDropDownLine} from 'react-icons/ri'
+import {RiArrowDropDownLine, RiUserUnfollowFill} from 'react-icons/ri'
+import {VscDebugStackframeDot} from 'react-icons/vsc'
+import {MdReportProblem} from 'react-icons/md'
 
 
 export default function Home() {
@@ -11,7 +13,73 @@ export default function Home() {
     <>
       <Header/>
 
-      <BannerDiv>      
+      <BannerDiv>
+        <div className="bannerMain">
+          <h1>Receba diariamente seu horóscopo no zap!</h1>
+          <div className='content'>
+            <div className='left'>
+              <img src="/image/telzap.png" alt="telzap"/>
+              <img src="/image/gratis.png" alt="gratis" className='gratis'/>
+            </div>
+            <form action="" method="post" id='formCadastro'>
+              <div className='forT'>
+                <div className="input">
+                  <label htmlFor="name">Seu nome:</label>
+                  <input type="text" name='name' id='name'/>
+                </div>
+                <div className="input">
+                  <label htmlFor="email">E-mail:</label>
+                  <input type="text" name='email' id='email'/>
+                </div>
+              </div>
+              <dir className='fotB'>
+                <div className='input'>
+                  <label htmlFor="">Gênero:</label>
+                  <select name="genero" id="genero">
+                    <option value="masculino">Masculino</option>
+                    <option value="faminino">Femenino</option>
+                    <option value="trans">Trans</option>
+                    <option value="nbinario">Não binário</option>
+                    <option value="fluido">Fluido</option>
+                  </select>
+                </div>
+                <div className="input">
+                  <label htmlFor="nascimento">Data de Nasc.:</label>
+                  <input type="text" name='nascimento' id='nascimento'/>
+                </div>
+              </dir>
+
+              <div className='receber baseFont'>
+                <span>Você quer receber seu Horóscopo por:</span>
+                <div className='redesSelect'>
+                  <div className='cardRede'>
+                    <img src="/image/bwpp.png" alt="" />
+                    <input type="radio" name="rede" id="" />
+                  </div>
+                  <div className='cardRede'>
+                    <img src="/image/btele.png" alt="" />
+                    <input type="radio" name="rede" id="" />
+                  </div>
+                  <div className='cardRede'>
+                    <img src="/image/bemail.png" alt="" />
+                    <input type="radio" name="rede" id="" />
+                  </div>
+                </div>
+                <input type="text" className='redeDado'/>
+                <div>
+                  <input type="checkbox" name="termos" id="termos" />
+                  <label htmlFor="termos"> Li e aceito os termos de uso</label>
+                </div>
+                <button> CADASTRAR </button>                
+              </div>
+                                         
+            </form>
+          </div>
+          <span className='servico'>
+            Serviço gratuito.
+            Se quiser cancelar os envios basta clicar em "descadastrar" no rodapé do site
+          </span>
+        </div>      
       </BannerDiv>
 
       <ComoFuncionaDiv>
@@ -100,7 +168,53 @@ export default function Home() {
         </div>
       </IndicarBannerDiv>
 
-      <RestInfoDiv></RestInfoDiv>
+      <RestInfoDiv>
+        <div className="restMain">
+          <div className="restTop">
+            <div className="list">
+              <a href="/">Quem Somos</a>
+              <VscDebugStackframeDot className='baseColor'/>
+              <a href="/">Termos de uso</a>
+              <VscDebugStackframeDot className='baseColor'/>
+              <a href="/">Fale Conosco</a>
+              <VscDebugStackframeDot className='baseColor'/>
+              <a href="/">Política de privacidade</a>   
+            </div>
+            <div className="list bot">
+              <span className='baseFont baseColor'> Apoio:</span>
+              <img src="/image/submarino.png" alt="logosubmarino" className='restLogo'/>
+              <img src="/image/americanas.png" alt="logoamericanas" className='restLogo'/>
+              <img src="/image/genera.png" alt="logogenera" className='restLogo'/>
+            </div>
+          </div>
+          <div className="restBot">
+            <div className='left'>
+              <div>
+                <RiUserUnfollowFill className='lIcon baseColor'/>
+                <span>descadastrar</span>
+              </div>
+              <div>
+                <MdReportProblem className='lIcon baseColor'/>
+                <span>reportar erro</span>
+              </div>
+            </div>
+
+            <div className='right'>
+              <span className='baseFont'>
+                compartilhe:
+              </span>
+              <div>
+                <img src="/image/wppicon.png" alt="wppicon" className='socialIcons'/>
+                <img src="/image/teleicon.png" alt="telegramicon" className='socialIcons'/>
+                <img src="/image/instaicon.png" alt="instagramicon" className='socialIcons'/>
+                <img src="/image/faceicon.png" alt="facebookicon" className='socialIcons'/>
+                <img src="/image/tticon.png" alt="twittericon" className='socialIcons'/>
+                <img src="/image/linkicon.png" alt="linkedinicon" className='socialIcons'/>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </RestInfoDiv>
       <Footer/>
     </>
   );

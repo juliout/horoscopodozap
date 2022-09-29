@@ -1,9 +1,165 @@
 import styled from "styled-components";
 
 export const BannerDiv = styled.div`
-    background-color: green;
+    
     width: 100%;
-    min-height: 525px;
+    height: 550px;
+    background-image: url('./image/bannerastro.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .bannerMain {
+        width: 100%;
+        height: 100%;
+        max-width: 600px;
+
+        margin: 0 auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            color: #ffba27;
+            margin: 20px 0 10px 0;
+
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 420px;
+            margin-bottom: 5px;
+
+            .left {
+                width: 35%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                margin-right: 20px;
+
+                img {
+                    width: 85%;
+                    height: 350px;
+                }
+                .gratis {
+                    width: 130px;
+                    height: 60px;
+                }
+            }
+
+            #formCadastro {
+                width: 50%;
+                height: 100%;
+
+                .forT {
+                    height: 15%;
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .fotB {
+                    display: flex;
+                    height: 15%;
+                    margin-top: 5px;
+                }
+
+                .input  {
+                    display: flex;
+                    flex-direction: column;
+                    width: 47%;
+                    
+                    label {
+                        color: #ffba27;
+                        margin-bottom: 5px;
+                    }
+                    input[type=text] {
+                        padding-left: 10px;
+                        width: 100%;
+                        height: 35px;
+                        border-radius: 10px;
+                        border: 1px black solid
+                    }    
+                    
+                    select {
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        -ms-appearance: none;
+                        appearance: none;
+                        width: 70%;
+                        height: 35px;
+                        padding: 0 10px;
+                        border-radius: 10px;                        
+                    }
+                    #genero{
+                        background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='purple'><polygon points='0,0 100,0 50,50'/></svg>");
+                        background-repeat: no-repeat;
+                        background-size: 13px;
+                        background-position-x: 82px;
+                        background-position-y: 15px;
+                        background-color: white;
+                    } 
+                }
+
+                .receber {
+                    width: 100%;
+                    height: 68%;
+                    padding-top: 5px;
+                    span {
+                        color: #ffba27;
+                        font-size: 0.85rem;
+                        font-weight: 700;
+                        height: 9%;
+                    }
+                    background-color: red;
+
+                    .redesSelect {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 90%;
+                        height: 38%;
+                        padding-top: 5px;                        
+                    }
+                    .cardRede {
+                        
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-around;
+                        width: 32%;
+                        height: 100px;
+                        img {
+                            width: 70px;
+                            height: 70px;
+                        }
+
+                        input[type=radio] {
+                            width: 17px;
+                            height: 17px;
+                            box-shadow: inset 0 0 5px #05050571;
+                        }
+                    }
+                    .redeDado{
+                        width: 85%;
+                        height: 35px;
+
+                        border-radius: 10px;
+                        margin-top: 10px;
+                        border: 1px black solid;
+                    }
+
+                }
+            }
+        }
+
+        .servico {
+            font-size: 0.7rem;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            color:white;
+        }
+    }
 `
 
 export const ComoFuncionaDiv = styled.div`
@@ -248,7 +404,109 @@ export const IndicarBannerDiv = styled.div`
     }
 `
 export const RestInfoDiv = styled.div`
-    background-color: aqua;
+    
     width: 100%;
     min-height: 220px;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+
+    .restMain {
+        width: 100%;
+        max-width: 1100px;
+        
+        min-height: 220px;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        
+        .restTop {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+            width: 100%;
+            height: 140px;
+            
+            border-bottom: 5px #71265b solid;
+
+            .list {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 30%;
+                max-width: 700px;
+
+                a {
+                    margin: 0 auto;
+                }
+
+                span {
+                    font-size: 0.8rem;
+                    font-weight: 700;
+                }
+
+                .restLogo {
+                    max-width: 110px;
+                    height: 20px;
+                    margin: 0 20px;
+                }
+            }
+            .bot {
+                align-items: baseline;
+                margin-top: 10px;
+            }
+        }
+        .restBot {
+            width:100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .left {
+                display: flex;
+                
+                div {
+                    display: flex;
+                    align-items: center;
+                    margin-right: 10px;
+
+                    span {
+                        font-family: 'Poppins', sans-serif;
+                        font-size: 0.7rem;
+                        font-weight: 700;
+                        margin-left: 10px;
+                    }
+                }
+                .lIcon {
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+
+            .right {
+                display: flex;
+                align-items: center;
+                div {
+                    display: flex;
+                    align-items: center;
+                }
+                span {
+                    font-size: 0.8rem;
+                    font-weight: 700;
+                }
+                .socialIcons {
+                    width: 35px;
+                    height: 35px;
+                    margin-left: 10px;
+                }
+
+            }
+        }
+    }
 `
