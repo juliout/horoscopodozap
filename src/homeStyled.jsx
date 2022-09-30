@@ -3,10 +3,14 @@ import styled from "styled-components";
 export const BannerDiv = styled.div`
     
     width: 100%;
-    height: 550px;
+    height: 570px;
     background-image: url('./image/bannerastro.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    
+    @media (max-width: 623px) {
+        height: 600px;
+    }
 
     .bannerMain {
         width: 100%;
@@ -22,6 +26,7 @@ export const BannerDiv = styled.div`
         h1 {
             color: #ffba27;
             margin: 20px 0 10px 0;
+            text-align: center;
 
         }
         .content {
@@ -54,7 +59,7 @@ export const BannerDiv = styled.div`
             #formCadastro {
                 width: 50%;
                 height: 100%;
-
+                
                 .forT {
                     height: 15%;
                     display: flex;
@@ -193,8 +198,37 @@ export const BannerDiv = styled.div`
             font-weight: 500;
             font-family: 'Poppins', sans-serif;
             color:white;
+            text-align: center;
+            margin-top: 15px;
         }
     }
+    @media (max-width: 413px) {
+            height: 900px;
+        .bannerMain {
+            justify-content: space-around;
+            .content {
+                .left {
+                    display: none;
+                    background-color: red;
+                    img{
+                        display: none;
+                    }
+                }
+                #formCadastro{
+                    width:90%;
+                    .receber {
+                        width: 100%;
+                        align-items: center;
+                        .redesSelect {
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
 `
 
 export const ComoFuncionaDiv = styled.div`
@@ -324,32 +358,12 @@ export const PerguntasDiv = styled.div`
             color: #71265b;
             margin-bottom: 20px;
         }
-
-        .perguntasDiv {
-            display: flex;
-            align-items: center;
-
+        .perguntasContainer {
             width: 100%;
-            height: 70px;
-            margin-top: 5px;
-            margin-left: 10px;
-            border-bottom: 2px #f3f3f3 solid;
-
-            h3{
-                font-size: 1rem;
-                color: #858585;
-                font-weight: 400;
-            }
-            
-            .arrowIcon {
-
-                width: 30px;
-                height: 30px;
-                fill: #858585;
-                margin: 0 20px 0 auto;
-                cursor: pointer;
-            }
+            display: flex;
+            flex-direction: column;
         }
+
     }
 
 
@@ -357,7 +371,8 @@ export const PerguntasDiv = styled.div`
 export const IndicarBannerDiv = styled.div`
     
     width: 100%;
-    height: 200px;
+    min-height: 200px;
+    height: auto;
 
     display: flex;
     align-items: center;
@@ -375,6 +390,11 @@ export const IndicarBannerDiv = styled.div`
         align-items: center;
         justify-content: space-evenly;
 
+        @media (max-width: 413px) {
+            flex-direction: column;
+            text-align: center;
+        }
+
         .indicarLeft {
         display: flex;
         flex-direction: column;
@@ -383,7 +403,7 @@ export const IndicarBannerDiv = styled.div`
         color: white;
 
         width: 50%;
-        min-width: 300px;
+        min-width: 200px;
         height: 100%;
         padding: 10px;
         
@@ -395,6 +415,7 @@ export const IndicarBannerDiv = styled.div`
             width: 50%;
             height: 40px;
             max-width: 250px;
+            min-width: 200px;
             font-weight: 600;
 
             display: flex;
@@ -419,7 +440,7 @@ export const IndicarBannerDiv = styled.div`
 
     .indicarRight{ 
         width: 50%;
-        min-width: 300px;
+        min-width: 200px;
         height: 100%;
         
         display: flex;
@@ -471,29 +492,35 @@ export const RestInfoDiv = styled.div`
             .list {
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                justify-content: space-around;
                 width: 100%;
                 height: 30%;
                 max-width: 700px;
-
-                a {
-                    margin: 0 auto;
-                }
-
-                span {
-                    font-size: 0.8rem;
-                    font-weight: 700;
-                }
 
                 .restLogo {
                     max-width: 110px;
                     height: 20px;
                     margin: 0 20px;
                 }
+
+                @media (max-width: 413px) {
+                    width: 90%;
+                    span {
+                        font-size: 0,5rem;
+                    }
+                    .restLogo {
+                        width: 90px;
+                        margin: 0 5px;
+                    }
+                }
+
             }
             .bot {
                 align-items: baseline;
                 margin-top: 10px;
+                font-weight: 700;
+                font-size: 0.9rem;
+                
             }
         }
         .restBot {
@@ -501,7 +528,13 @@ export const RestInfoDiv = styled.div`
             height: 80px;
             display: flex;
             align-items: center;
+            padding-right: 5px;
             justify-content: space-between;
+
+            @media (max-width: 623px) {
+                flex-direction: column;
+                margin: 10px 0;
+            }
 
             .left {
                 display: flex;
@@ -539,8 +572,14 @@ export const RestInfoDiv = styled.div`
                     width: 35px;
                     height: 35px;
                     margin-left: 10px;
+                    :hover {
+                        transform: scale(1.3);
+                        cursor: pointer;
+                    }
                 }
-
+                @media (max-width: 355px) {
+                    flex-direction: column;
+                }
             }
         }
     }

@@ -37,6 +37,9 @@ a {
     font-weight: 700;
     color: #71265b;
 }
+p {
+    font-family: 'Poppins', sans-serif;
+}
 
 button {
     font-family: 'Poppins', sans-serif;

@@ -1,9 +1,11 @@
 import {ModalDiv} from './modalStyled'
 import InputText from '../inputText'
+import BtnFlip from '../BtnFlip'
 
 export default function MCadastro() {
     return (
         <ModalDiv>
+            
             <div className="modalMain">
                 <form action="" id='formSendCadastro'>
                     <h2 className='formTitle'>

@@ -1,6 +1,8 @@
 import Header from './components/Header'
 import Footer from './components/Footer'
 import MCadastro from './components/ModalCadastro'
+import BtnFlip from './components/BtnFlip'
+import LiPerguntas from './components/LiPerguntas'
 
 import {BannerDiv, ComoFuncionaDiv, PerguntasDiv, IndicarBannerDiv, RestInfoDiv} from './homeStyled'
 
@@ -14,7 +16,7 @@ export default function Home() {
   return (
     <>
       <Header/>
-      <MCadastro/>
+     {/* <MCadastro/> */}
       <BannerDiv>
         <div className="bannerMain">
           <h1>Receba diariamente seu horóscopo no zap!</h1>
@@ -139,22 +141,11 @@ export default function Home() {
       <PerguntasDiv>
         <div className="perguntasMain">
           <h1>Perguntas Frequentes</h1>
-
-          <div className="perguntasDiv">
-            <h3>Punctuation conventions used in Chinese languages</h3>
-            <RiArrowDropDownLine className='arrowIcon'/>
-          </div>
-          <div className="perguntasDiv">
-            <h3>Punctuation conventions used in Chinese languages</h3>
-            <RiArrowDropDownLine className='arrowIcon'/>
-          </div>
-          <div className="perguntasDiv">
-            <h3>Mark added to a letter</h3>
-            <RiArrowDropDownLine className='arrowIcon'/>
-          </div>
-          <div className="perguntasDiv">
-            <h3>Mark added to a letter</h3>
-            <RiArrowDropDownLine className='arrowIcon'/>
+          <div className="perguntasContainer">
+            <LiPerguntas></LiPerguntas>
+            <LiPerguntas></LiPerguntas>
+            <LiPerguntas></LiPerguntas>
+            <LiPerguntas></LiPerguntas>
           </div>
         </div>
 
@@ -176,16 +167,16 @@ export default function Home() {
         <div className="restMain">
           <div className="restTop">
             <div className="list">
-              <a href="/">Quem Somos</a>
+              <BtnFlip text={'Quem somos'} />
               <VscDebugStackframeDot className='baseColor'/>
-              <a href="/">Termos de uso</a>
+              <BtnFlip text={'Termos de uso'}/>
               <VscDebugStackframeDot className='baseColor'/>
-              <a href="/">Fale Conosco</a>
+              <BtnFlip text={'Fale conosco'}/>
               <VscDebugStackframeDot className='baseColor'/>
-              <a href="/">Política de privacidade</a>   
+              <BtnFlip text={'Politica de privacidade'}/>  
             </div>
             <div className="list bot">
-              <span className='baseFont baseColor'> Apoio:</span>
+              <span className='baseFont '> Apoio:</span>
               <img src="/image/submarino.png" alt="logosubmarino" className='restLogo'/>
               <img src="/image/americanas.png" alt="logoamericanas" className='restLogo'/>
               <img src="/image/genera.png" alt="logogenera" className='restLogo'/>
@@ -195,11 +186,11 @@ export default function Home() {
             <div className='left'>
               <div>
                 <RiUserUnfollowFill className='lIcon baseColor'/>
-                <span>descadastrar</span>
+                <BtnFlip text={'descadastrar'}/>
               </div>
               <div>
                 <MdReportProblem className='lIcon baseColor'/>
-                <span>reportar erro</span>
+                <BtnFlip text={'reportar erro'}/>
               </div>
             </div>
 

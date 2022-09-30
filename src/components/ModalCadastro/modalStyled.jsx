@@ -10,7 +10,8 @@ export const ModalDiv = styled.div`
     background-color: #00000049;
 
     .modalMain {
-        width: 60%;
+        width: 70%;
+        min-width: 500px;
         height: 700px;
         margin-top: 10%;
         background-color: #71265b;
@@ -62,6 +63,7 @@ export const ModalDiv = styled.div`
                 display: flex;
                 align-items: center;
                 margin: 20px 0;
+
                 input {
                     margin-right: 5px;
                 }
