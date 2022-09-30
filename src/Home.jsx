@@ -1,3 +1,5 @@
+import {useState} from 'react'
+
 import Header from './components/Header'
 import Footer from './components/Footer'
 import MCadastro from './components/ModalCadastro'
@@ -7,16 +9,24 @@ import LiPerguntas from './components/LiPerguntas'
 import {BannerDiv, ComoFuncionaDiv, PerguntasDiv, IndicarBannerDiv, RestInfoDiv} from './homeStyled'
 
 import { BsFillShareFill} from 'react-icons/bs'
-import {RiArrowDropDownLine, RiUserUnfollowFill} from 'react-icons/ri'
+import {RiUserUnfollowFill} from 'react-icons/ri'
 import {VscDebugStackframeDot} from 'react-icons/vsc'
 import {MdReportProblem} from 'react-icons/md'
 
 
 export default function Home() {
+
+  const [cadastrar, setCadastrar] = useState(false)
+
+  const sendCadastrar = (e) => {
+    e.preventDefault()
+    setCadastrar(true)
+  }
+
   return (
     <>
       <Header/>
-     {/* <MCadastro/> */}
+     {cadastrar === true ? <MCadastro/> : null}
       <BannerDiv>
         <div className="bannerMain">
           <h1>Receba diariamente seu horóscopo no zap!</h1>
@@ -25,7 +35,7 @@ export default function Home() {
               <img src="/image/telzap.png" alt="telzap"/>
               <img src="/image/gratis.png" alt="gratis" className='gratis'/>
             </div>
-            <form action="" method="post" id='formCadastro'>
+            <form method="post" id='formCadastro'>
               <div className='forT'>
                 <div className="input">
                   <label htmlFor="name">Seu nome:</label>
@@ -75,7 +85,7 @@ export default function Home() {
                   <label htmlFor="termos"> Li e aceito os <span>termos de uso</span></label>
                 </div>
                 <div className='cadastrarbtn'>
-                  <button> CADASTRAR </button>                
+                  <button onClick={sendCadastrar}> CADASTRAR </button>                
                 </div>
               </div>
                                          

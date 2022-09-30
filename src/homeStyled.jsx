@@ -185,7 +185,7 @@ export const BannerDiv = styled.div`
                             font-weight: 900;
                             font-size: 1.3rem;
                             background-color: #ffbb28;
-                            
+                            cursor: pointer;
                         }
                     }
 
