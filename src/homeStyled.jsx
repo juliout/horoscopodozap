@@ -41,11 +41,12 @@ export const BannerDiv = styled.div`
                 margin-right: 20px;
 
                 img {
-                    width: 85%;
+                    width: 90%;
+                    min-width: 190px;
                     height: 350px;
                 }
                 .gratis {
-                    width: 130px;
+                    width: 140px;
                     height: 60px;
                 }
             }
@@ -112,8 +113,6 @@ export const BannerDiv = styled.div`
                         font-weight: 700;
                         height: 9%;
                     }
-                    background-color: red;
-
                     .redesSelect {
                         display: flex;
                         justify-content: space-between;
@@ -141,12 +140,48 @@ export const BannerDiv = styled.div`
                         }
                     }
                     .redeDado{
-                        width: 85%;
+                        width: 90%;
                         height: 35px;
 
                         border-radius: 10px;
                         margin-top: 10px;
                         border: 1px black solid;
+                        padding-left: 30px;
+                    }
+                    .termosdiv {
+                        width: 90%;
+                        
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding-top: 10px;
+                        label {
+                            margin-left: 5px;
+                            font-size: 0.7rem;
+                            color: white;
+                            span {
+                                font-size: 0.7rem;
+                            }
+                        }
+                    }
+                    .cadastrarbtn {
+                        width: 90%;
+                        margin-top: 10px;
+                        
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        button {
+                            width: 80%;
+                            height: 55px;
+                            border-radius: 10px;
+                            border:1px black solid;
+                            font-weight: 900;
+                            font-size: 1.3rem;
+                            background-color: #ffbb28;
+                            
+                        }
                     }
 
                 }
@@ -155,7 +190,7 @@ export const BannerDiv = styled.div`
 
         .servico {
             font-size: 0.7rem;
-            font-weight: 700;
+            font-weight: 500;
             font-family: 'Poppins', sans-serif;
             color:white;
         }

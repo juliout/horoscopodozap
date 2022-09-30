@@ -1,5 +1,7 @@
 import Header from './components/Header'
 import Footer from './components/Footer'
+import MCadastro from './components/ModalCadastro'
+
 import {BannerDiv, ComoFuncionaDiv, PerguntasDiv, IndicarBannerDiv, RestInfoDiv} from './homeStyled'
 
 import { BsFillShareFill} from 'react-icons/bs'
@@ -12,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Header/>
-
+      <MCadastro/>
       <BannerDiv>
         <div className="bannerMain">
           <h1>Receba diariamente seu horóscopo no zap!</h1>
@@ -66,11 +68,13 @@ export default function Home() {
                   </div>
                 </div>
                 <input type="text" className='redeDado'/>
-                <div>
+                <div className='termosdiv'>
                   <input type="checkbox" name="termos" id="termos" />
-                  <label htmlFor="termos"> Li e aceito os termos de uso</label>
+                  <label htmlFor="termos"> Li e aceito os <span>termos de uso</span></label>
                 </div>
-                <button> CADASTRAR </button>                
+                <div className='cadastrarbtn'>
+                  <button> CADASTRAR </button>                
+                </div>
               </div>
                                          
             </form>
