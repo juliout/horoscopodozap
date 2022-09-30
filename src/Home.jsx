@@ -62,7 +62,6 @@ export default function Home() {
                   <input type="text" name='nascimento' id='nascimento'/>
                 </div>
               </dir>
-
               <div className='receber baseFont'>
                 <span>Você quer receber seu Horóscopo por:</span>
                 <div className='redesSelect'>

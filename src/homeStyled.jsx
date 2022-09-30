@@ -164,6 +164,7 @@ export const BannerDiv = styled.div`
                             margin-left: 5px;
                             font-size: 0.7rem;
                             color: white;
+                            
                             span {
                                 font-size: 0.7rem;
                             }
