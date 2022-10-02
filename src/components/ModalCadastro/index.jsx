@@ -1,41 +1,63 @@
+import {useState} from 'react'
+import axios from 'axios'
+import InputMask from 'react-input-mask'
 import {ModalDiv} from './modalStyled'
-import InputText from '../inputText'
-import BtnFlip from '../BtnFlip'
 
-export default function MCadastro() {
+export default function MCadastro({setCadastrar, form}) {
+
+    const [name, setName] = useState(form.name)
+    const [dataNascimento, setDataNascimento] = useState(form.nascimento)
+    const [email, setEmail] = useState(form.email)
+
+    const closebox = (e) => {
+        e.preventDefault()
+        
+    }
+
+    const sendCadastro = async (e) => {
+        e.preventDefault()
+        let {name, nascimento, email, password} = e.target
+
+        let user = {
+            name: name.value,
+            nascimento: nascimento.value,
+            email: email.value,
+            password: password.value,
+            social: form.social,
+            socialContact : form.socialContact,
+            site: 'horoscopozap'
+        }
+        const reponse = await axios.post('/createuser', user).catch(error=> console.log(error.message))
+        if(reponse.status === 400) { return console.log(reponse.data.message)}
+    }
+
+    console.log(form)
     return (
-        <ModalDiv>
-            
+        <ModalDiv onClick={closebox}>
             <div className="modalMain">
-                <form action="" id='formSendCadastro'>
+                <form action="" id='formSendCadastro' onSubmit={sendCadastro}>
                     <h2 className='formTitle'>
                         Complete seu cadastro e escolha uma senha para que você possa
                         editar ou cancelar seus alertas aqui pelo site.
                     </h2>
                     <div className='divForm'>
-                        <InputText
-                            divTamanhoX={'95%'} inputTamanhoX={'100%'}
-                            text={'Nome Completo'} lColor={'white'}
-                            inputTamanhoY={'35px'}
-                        />
+                        <div className='input fullname'>
+                            <label htmlFor="name">Nome Completo:</label>
+                            <input type="text" name='name' id='name' required value={name} onChange={(e)=>setName(e.target.value)}/>
+                        </div>
                         <div className='stwo'>
-                            <InputText
-                                divTamanhoX={'30%'} inputTamanhoX={'100%'}
-                                text={'Data Nascimento:'} lColor={'white'}
-                                inputTamanhoY={'35px'} name={'dataNascimento'} 
-                                htmlfor={'dataNascimento'} id={'dataNascimento'}
-                            />
-                            <InputText
-                                divTamanhoX={'30%'} inputTamanhoX={'100%'}
-                                text={'E-mail:'} lColor={'white'}
-                                inputTamanhoY={'35px'} name={'dataNascimento'} 
-                                htmlfor={'dataNascimento'} id={'dataNascimento'}
-                            />
-                            <InputText
-                                divTamanhoX={'30%'} inputTamanhoX={'100%'}
-                                text={'Crie uma Senha:'} lColor={'white'}
-                                inputTamanhoY={'35px'}
-                            />
+                        <div className='input'>
+                            <label htmlFor="nascimento">Data Nasci.:</label>
+                            <InputMask  mask={'99-99-9999'} type='text' id='nascimento' required value={dataNascimento} onChange={(e)=>setDataNascimento(e.target.value)}/>
+                        </div>
+                        <div className='input '>
+                            <label htmlFor="name">E-mail</label>
+                            <input type="email" name='email' id='email'  required value={email} onChange={(e)=>setEmail(e.target.value)}/>
+                        </div>
+                        <div className='input'>
+                            <label htmlFor="name">Senha</label>
+                            <input type="password" name='password' id='password' required/>
+                        </div>
                         </div>
                         <p className='pform'>
                             Para cadastrar mais veículos, editar ou cancelar o envio dos alertas,
@@ -43,7 +65,7 @@ export default function MCadastro() {
                         </p>
 
                         <div className='divtemos'>
-                            <input type="checkbox" name="" id="" />
+                            <input type="checkbox" name="" id="" required/>
                             <label htmlFor="">Li e aceito os <span>termos de uso</span>.</label>
                         </div>
                         <button className='prontobtn'>Pronto!</button>

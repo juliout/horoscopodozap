@@ -67,6 +67,7 @@ export const BannerDiv = styled.div`
                 }
                 .fotB {
                     display: flex;
+                    align-items: center;
                     height: 15%;
                     margin-top: 5px;
                 }
@@ -79,8 +80,11 @@ export const BannerDiv = styled.div`
                     label {
                         color: #ffba27;
                         margin-bottom: 5px;
+                        @media (max-width: 770px)  {
+                            font-size: 0.7rem;
+                        }
                     }
-                    input[type=text] {
+                    input {
                         padding-left: 10px;
                         width: 100%;
                         height: 35px;
@@ -94,7 +98,7 @@ export const BannerDiv = styled.div`
                         -ms-appearance: none;
                         appearance: none;
                         width: 70%;
-                        height: 35px;
+                        height: 40px;
                         padding: 0 10px;
                         border-radius: 10px;                        
                     }
@@ -151,7 +155,7 @@ export const BannerDiv = styled.div`
                         border-radius: 10px;
                         margin-top: 10px;
                         border: 1px black solid;
-                        padding-left: 30px;
+                        text-align: center;
                     }
                     .termosdiv {
                         width: 90%;

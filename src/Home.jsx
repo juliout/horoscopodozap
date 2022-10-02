@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import InputMask from 'react-input-mask'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -17,16 +18,38 @@ import {MdReportProblem} from 'react-icons/md'
 export default function Home() {
 
   const [cadastrar, setCadastrar] = useState(false)
+  const [formCadastro, setFormCadastro] = useState({})
+  const [socialContact, setSocialContact] = useState('')
+  const [plataform, setPlataform] = useState('whatsapp')
 
-  const sendCadastrar = (e) => {
+
+  const sendCadastrar = async (e) => {
     e.preventDefault()
+    console.log(e.target)
+    let {name, eMail, genero, nascimento, social, socialContact} = e.target
+
+    social.forEach(i => {
+      if (i.checked === true)
+        return social = i.id
+      })
+
+    let form = {
+      name: name.value,
+      email: eMail.value,
+      genero: genero.value,
+      nascimento: nascimento.value,
+      social: social,
+      socialContact: socialContact.value,
+      site: 'horoscopozap'
+    }
+    setFormCadastro(form)   
     setCadastrar(true)
   }
 
   return (
     <>
       <Header/>
-     {cadastrar === true ? <MCadastro/> : null}
+     {cadastrar === true ? <MCadastro setCadastrar={setCadastrar} form={formCadastro}/> : null}
       <BannerDiv>
         <div className="bannerMain">
           <h1>Receba diariamente seu horóscopo no zap!</h1>
@@ -35,21 +58,21 @@ export default function Home() {
               <img src="/image/telzap.png" alt="telzap"/>
               <img src="/image/gratis.png" alt="gratis" className='gratis'/>
             </div>
-            <form method="post" id='formCadastro'>
+            <form method="post" id='formCadastro' onSubmit={sendCadastrar}>
               <div className='forT'>
-                <div className="input">
-                  <label htmlFor="name">Seu nome:</label>
-                  <input type="text" name='name' id='name'/>
+                <div className='input'>
+                  <label htmlFor="name">Nome:</label>
+                  <input type="text" name='name' id='name' required/>
                 </div>
-                <div className="input">
+                <div className='input'>
                   <label htmlFor="email">E-mail:</label>
-                  <input type="text" name='email' id='email'/>
+                  <input type="email" name='eMail' id='eMail'required/>
                 </div>
               </div>
               <dir className='fotB'>
                 <div className='input'>
-                  <label htmlFor="">Gênero:</label>
-                  <select name="genero" id="genero">
+                  <label htmlFor="genero">Gênero:</label>
+                  <select name="genero" id="genero" required>
                     <option value="masculino">Masculino</option>
                     <option value="faminino">Femenino</option>
                     <option value="trans">Trans</option>
@@ -57,34 +80,41 @@ export default function Home() {
                     <option value="fluido">Fluido</option>
                   </select>
                 </div>
-                <div className="input">
-                  <label htmlFor="nascimento">Data de Nasc.:</label>
-                  <input type="text" name='nascimento' id='nascimento'/>
+                <div className='input'>
+                  <label htmlFor="nascimento">Data Nasc.:</label>
+                  <InputMask  mask={'99-99-9999'} name='nascimento' id='nascimento'/>
                 </div>
               </dir>
               <div className='receber baseFont'>
                 <span>Você quer receber seu Horóscopo por:</span>
                 <div className='redesSelect'>
-                  <div className='cardRede'>
-                    <img src="/image/bwpp.png" alt="" />
-                    <input type="radio" name="rede" id="" />
+                  <div className='cardRede' onClick={()=> {setPlataform('whatsapp')}}>
+                    <label htmlFor='whatsapp'><img src="/image/bwpp.png" alt="" htmlFor='rede'/></label>
+                    <input type="radio" name="social" id="whatsapp" required defaultChecked/>
                   </div>
-                  <div className='cardRede'>
-                    <img src="/image/btele.png" alt="" />
-                    <input type="radio" name="rede" id="" />
+                  <div className='cardRede' onClick={()=> {setPlataform('telegram')}}>
+                    <label htmlFor="telegram"><img src="/image/btele.png" alt="" /></label>
+                    <input type="radio" name="social" id="telegram" required/>
                   </div>
-                  <div className='cardRede'>
-                    <img src="/image/bemail.png" alt="" />
-                    <input type="radio" name="rede" id="" />
+                  <div className='cardRede' onClick={()=> {setPlataform('e-mail')}}>
+                  <label htmlFor="e-mail"><img src="/image/bemail.png" alt="" /></label>
+                    <input type="radio" name="social" id="e-mail" required/>
                   </div>
                 </div>
-                <input type="text" className='redeDado'/>
+                {/* <input type="text" className='redeDado' name='socialContact' id='socialContact'required placeholder={'___________'} value={socialContact}onChange={(e)=>maskSocialContact(e.target.value,setSocialContact)} maxLength='14'/> */}
+                { 
+                  plataform === 'whatsapp' ?          
+                  <InputMask className='redeDado' mask={'(99)99999-9999'} name='socialContact' id='socialContact'/>               
+                  : plataform === 'telegram' ? <input type='text'className='redeDado' name='socialContact' id='socialContact'/>
+                  : plataform === 'e-mail' ?<input type='email' className='redeDado' name='socialContact' id='socialContact'/>
+                  : null
+                } 
                 <div className='termosdiv'>
-                  <input type="checkbox" name="termos" id="termos" />
+                  <input type="checkbox" name="termos" id="termos" required/>
                   <label htmlFor="termos"> Li e aceito os <span>termos de uso</span></label>
                 </div>
                 <div className='cadastrarbtn'>
-                  <button onClick={sendCadastrar}> CADASTRAR </button>                
+                  <button> CADASTRAR </button>                
                 </div>
               </div>
                                          

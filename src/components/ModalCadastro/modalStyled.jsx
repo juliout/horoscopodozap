@@ -10,9 +10,11 @@ export const ModalDiv = styled.div`
     background-color: #00000049;
 
     .modalMain {
-        width: 70%;
-        min-width: 500px;
-        height: 700px;
+        width: 90%;
+        min-width: 310px;
+        max-width: 600px;
+        min-height: 400px;
+        max-height: 700px;
         margin-top: 10%;
         background-color: #71265b;
 
@@ -27,26 +29,66 @@ export const ModalDiv = styled.div`
             display: flex;
             flex-direction: column;
             align-items: center;
+
             .formTitle {
                 color: #f4e29b;
+                width: 100%;
                 font-weight: 700;
                 text-align: center;
                 margin-top: 5%;
                 margin-bottom: 20px;
             }
             .divForm {
-                width: 70%;
-                min-width: 440px;
-                max-width: 500px;
+                min-height: 500px;
+                min-width: 315px;
+                max-width: 600px;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: space-around;
                 align-items: center;
             }
+            .input  {
+                display: flex;
+                flex-direction: column;
+                width: 31%;
+                
+                label {
+                    color: white;
+                    margin-bottom: 7px;
+                    @media (max-width: 770px)  {
+                        font-size: 0.7rem;
+                    }
+                }
+                input[type=text] {
+                    padding-left: 10px;
+                    width: 100%;
+                    height: 40px;
+                    border-radius: 10px;
+                }
+                input[type=email] {
+                    padding-left: 10px;
+                    width: 100%;
+                    height: 40px;
+                    border-radius: 10px;
+                }
+                input[type=password] {
+                    padding-left: 10px;
+                    width: 100%;
+                    height: 40px;
+                    border-radius: 10px;
+                }    
+            }
+            .fullname {
+                width: 95%;            
+            }
+
             .stwo {
                 width: 95%;
+                height:auto;
+                min-height: 70px;
                 display: flex;
-                justify-content: space-between;                
+                align-items: center;
+                justify-content: space-between;    
             }
             .pform {
                 font-family: 'Poppins', sans-serif;
@@ -84,5 +126,22 @@ export const ModalDiv = styled.div`
                 letter-spacing: 0.05rem;
             }
         }
+        
+        @media (max-width: 450px) {
+            width: 100%;
+            #formSendCadastro {
+                width: 100%;
+            }
+                .stwo {
+                    height: 80px;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                }
+                
+        }
+    
     }
+
+
 `
