@@ -101,7 +101,6 @@ export default function Home() {
                     <input type="radio" name="social" id="e-mail" required/>
                   </div>
                 </div>
-                {/* <input type="text" className='redeDado' name='socialContact' id='socialContact'required placeholder={'___________'} value={socialContact}onChange={(e)=>maskSocialContact(e.target.value,setSocialContact)} maxLength='14'/> */}
                 { 
                   plataform === 'whatsapp' ?          
                   <InputMask className='redeDado' mask={'(99)99999-9999'} name='socialContact' id='socialContact'/>               
@@ -206,16 +205,26 @@ export default function Home() {
         <div className="restMain">
           <div className="restTop">
             <div className="list">
-              <BtnFlip text={'Quem somos'} />
-              <VscDebugStackframeDot className='baseColor'/>
-              <BtnFlip text={'Termos de uso'}/>
-              <VscDebugStackframeDot className='baseColor'/>
-              <BtnFlip text={'Fale conosco'}/>
-              <VscDebugStackframeDot className='baseColor'/>
-              <BtnFlip text={'Politica de privacidade'}/>  
+              <span className='hiddenmenu baseColor'>Menu</span>
+              <div className='divLeft'>
+                <VscDebugStackframeDot className='baseColor hidden'/>
+                <BtnFlip className='textleft' text={'Quem somos'} />
+              </div>
+              <div className='divLeft'>
+                <VscDebugStackframeDot className='baseColor point'/>
+                <BtnFlip text={'Termos de uso'}/>
+              </div>
+              <div className='divLeft'>
+                <VscDebugStackframeDot className='baseColor point'/>
+                <BtnFlip text={'Fale conosco'}/>
+              </div>
+              <div className='divLeft'>
+                <VscDebugStackframeDot className='baseColor point'/>
+                <BtnFlip text={'Politica de privacidade'}/> 
+              </div> 
             </div>
-            <div className="list bot">
-              <span className='baseFont '> Apoio:</span>
+            <div className="bot">
+              <span className='baseFont baseColor'> Apoio:</span>
               <img src="/image/submarino.png" alt="logosubmarino" className='restLogo'/>
               <img src="/image/americanas.png" alt="logoamericanas" className='restLogo'/>
               <img src="/image/genera.png" alt="logogenera" className='restLogo'/>

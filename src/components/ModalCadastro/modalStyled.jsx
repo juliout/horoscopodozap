@@ -8,6 +8,7 @@ export const ModalDiv = styled.div`
     display: flex;
     justify-content: center;
     background-color: #00000049;
+    z-index: 99;
 
     .modalMain {
         width: 90%;
@@ -39,7 +40,7 @@ export const ModalDiv = styled.div`
                 margin-bottom: 20px;
             }
             .divForm {
-                min-height: 500px;
+                min-height: 400px;
                 min-width: 315px;
                 max-width: 600px;
                 display: flex;

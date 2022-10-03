@@ -8,9 +8,6 @@ export const BannerDiv = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     
-    @media (max-width: 623px) {
-        height: 600px;
-    }
 
     .bannerMain {
         width: 100%;
@@ -80,14 +77,11 @@ export const BannerDiv = styled.div`
                     label {
                         color: #ffba27;
                         margin-bottom: 5px;
-                        @media (max-width: 770px)  {
-                            font-size: 0.7rem;
-                        }
                     }
                     input {
                         padding-left: 10px;
                         width: 100%;
-                        height: 35px;
+                        height: 38px;
                         border-radius: 10px;
                         border: 1px black solid
                     }    
@@ -207,32 +201,6 @@ export const BannerDiv = styled.div`
             margin-top: 15px;
         }
     }
-    @media (max-width: 413px) {
-            height: 900px;
-        .bannerMain {
-            justify-content: space-around;
-            .content {
-                .left {
-                    display: none;
-                    background-color: red;
-                    img{
-                        display: none;
-                    }
-                }
-                #formCadastro{
-                    width:90%;
-                    .receber {
-                        width: 100%;
-                        align-items: center;
-                        .redesSelect {
-                            justify-content: center;
-                        }
-                    }
-                }
-            }
-        }
-
-    }
 
 `
 
@@ -279,7 +247,7 @@ export const ComoFuncionaDiv = styled.div`
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            align-items: center;
+            
             
             margin: 0 auto;
             
@@ -334,6 +302,12 @@ export const ComoFuncionaDiv = styled.div`
                     margin-top: auto;
                     width: 70%;
                     max-width: 200px;
+                    filter: grayscale(100%);
+	                filter: gray; /* IE */
+                    :hover {
+                        filter: grayscale(0%);
+	                    filter: gray; /* IE */
+                    }
                 }
             }
 
@@ -395,10 +369,6 @@ export const IndicarBannerDiv = styled.div`
         align-items: center;
         justify-content: space-evenly;
 
-        @media (max-width: 413px) {
-            flex-direction: column;
-            text-align: center;
-        }
 
         .indicarLeft {
         display: flex;
@@ -420,7 +390,7 @@ export const IndicarBannerDiv = styled.div`
             width: 50%;
             height: 40px;
             max-width: 250px;
-            min-width: 200px;
+            min-width: 150px;
             font-weight: 600;
 
             display: flex;
@@ -445,7 +415,6 @@ export const IndicarBannerDiv = styled.div`
 
     .indicarRight{ 
         width: 50%;
-        min-width: 200px;
         height: 100%;
         
         display: flex;
@@ -502,44 +471,50 @@ export const RestInfoDiv = styled.div`
                 height: 30%;
                 max-width: 700px;
 
+                .hidden {
+                    display: none;
+                }
+
+                .hiddenmenu {
+                    display: none;
+                    font-size: 600;
+                    font-size: 0.9rem;
+                }
+
+                .divLeft {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    justify-content: space-around;
+                }
+
                 .restLogo {
                     max-width: 110px;
                     height: 20px;
                     margin: 0 20px;
                 }
 
-                @media (max-width: 413px) {
-                    width: 90%;
-                    span {
-                        font-size: 0,5rem;
-                    }
-                    .restLogo {
-                        width: 90px;
-                        margin: 0 5px;
-                    }
-                }
 
             }
-            .bot {
-                align-items: baseline;
+            .bot {    
                 margin-top: 10px;
                 font-weight: 700;
                 font-size: 0.9rem;
+                width: 47% !important;
+                display: flex;
+                align-items: baseline;
+                justify-content: space-around;
                 
             }
         }
         .restBot {
             width:100%;
-            height: 80px;
+            min-height: 80px;
             display: flex;
             align-items: center;
             padding-right: 5px;
             justify-content: space-between;
 
-            @media (max-width: 623px) {
-                flex-direction: column;
-                margin: 10px 0;
-            }
 
             .left {
                 display: flex;
@@ -581,9 +556,6 @@ export const RestInfoDiv = styled.div`
                         transform: scale(1.3);
                         cursor: pointer;
                     }
-                }
-                @media (max-width: 355px) {
-                    flex-direction: column;
                 }
             }
         }
