@@ -7,6 +7,8 @@ import MCadastro from './components/ModalCadastro'
 import BtnFlip from './components/BtnFlip'
 import LiPerguntas from './components/LiPerguntas'
 
+import Email from './components/emailAutocompletee'
+
 import {BannerDiv, ComoFuncionaDiv, PerguntasDiv, IndicarBannerDiv, RestInfoDiv} from './homeStyled'
 
 import { BsFillShareFill} from 'react-icons/bs'
@@ -66,7 +68,7 @@ export default function Home() {
                 </div>
                 <div className='input'>
                   <label htmlFor="email">E-mail:</label>
-                  <input type="email" name='eMail' id='eMail'required/>
+                  <Email type="email" name='eMail' id='eMail'required/>
                 </div>
               </div>
               <dir className='fotB'>
