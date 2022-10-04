@@ -7,11 +7,13 @@ export const FooterDiv = styled.footer`
     color: white;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 
     .reservDiv {
+
         display: flex;
         align-items: center;
+        margin-right: 50px;
 
         h3 {
             font-size: 15px;
@@ -23,8 +25,12 @@ export const FooterDiv = styled.footer`
             margin: 0 10px;
         }
     }
-    img{
+        .imglgpd{
             height: 60%;
         }
-
+        .texttool {
+            width: 170px !important;
+            font-size: 0.7rem;
+            text-align: left;
+        }
 `

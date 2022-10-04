@@ -1,5 +1,8 @@
 import { FooterDiv } from './footerStyled'
 import { BiCopyright } from 'react-icons/bi'
+import ReactTooltip from 'react-tooltip';
+
+const tooltipText = 'Nós respeitamos sua privacidade. Projeto desenvolvido de acordo com as diretrizes da nova Lei Geral de Proteção de Dados.';
 
 export default function Footer() {
     return (
@@ -13,7 +16,10 @@ export default function Footer() {
                     Todos os direitos reservados                   
                 </h3>
             </div>
-            <img src="/image/lgpd.png" alt="lgpd icon" />
+            <ReactTooltip className='texttool'/>
+            <img src="/image/lgpd.png" alt="lgpd icon" className='imglgpd'
+                data-tip={tooltipText}
+            />
         </FooterDiv>
     )
 }

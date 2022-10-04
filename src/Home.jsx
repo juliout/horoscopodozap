@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import MCadastro from './components/ModalCadastro'
 import BtnFlip from './components/BtnFlip'
 import LiPerguntas from './components/LiPerguntas'
+import Modal from './components/modal'
 
 import Email from './components/emailAutocompletee'
 
@@ -18,6 +19,8 @@ import {MdReportProblem} from 'react-icons/md'
 
 
 export default function Home() {
+  const [modalDescadastrar, setModalDescadastrar] = useState(false)
+  const [modalReportar , setModalReportar] = useState(false)
 
   const [cadastrar, setCadastrar] = useState(false)
   const [formCadastro, setFormCadastro] = useState({})
@@ -52,39 +55,44 @@ export default function Home() {
     <>
       <Header/>
      {cadastrar === true ? <MCadastro setCadastrar={setCadastrar} form={formCadastro}/> : null}
-      <BannerDiv>
-        <div className="bannerMain">
+     {modalDescadastrar === true ? <Modal type={'descadastrar'} Modal={setModalDescadastrar}/> : null}
+     {modalReportar === true ? <Modal type={'reportarError'} Modal={setModalReportar}/> : null}
+      <BannerDiv>        
+        <div className="bannerMain" id='BannerCadastrar'>
           <h1>Receba diariamente seu horóscopo no zap!</h1>
           <div className='content'>
             <div className='left'>
-              <img src="/image/telzap.png" alt="telzap"/>
+              <img src="/image/telzap.png" alt="telzap" className='telzap'/>
               <img src="/image/gratis.png" alt="gratis" className='gratis'/>
             </div>
             <form method="post" id='formCadastro' onSubmit={sendCadastrar}>
               <div className='forT'>
                 <div className='input'>
                   <label htmlFor="name">Nome:</label>
-                  <input type="text" name='name' id='name' required/>
+                  <input type="text" name='name' id='name' />
                 </div>
                 <div className='input'>
                   <label htmlFor="email">E-mail:</label>
-                  <Email type="email" name='eMail' id='eMail'required/>
+                  <Email type="email" name='eMail' id='eMail'/>
                 </div>
               </div>
               <dir className='fotB'>
-                <div className='input'>
-                  <label htmlFor="genero">Gênero:</label>
-                  <select name="genero" id="genero" required>
-                    <option value="masculino">Masculino</option>
-                    <option value="faminino">Femenino</option>
-                    <option value="trans">Trans</option>
-                    <option value="nbinario">Não binário</option>
-                    <option value="fluido">Fluido</option>
-                  </select>
+                <div className='inputGenero'>
+                  <p>Gênero:</p>
+                  <div className='generos'>
+                    <div>
+                      <label htmlFor="asculino">M</label>
+                      <input type="radio" name='genero' id='Masculino'/>
+                    </div>
+                    <div>
+                      <label htmlFor="Feminino">F</label>
+                      <input type="radio" name='genero' id='Feminino'/>
+                    </div>'
+                  </div>
                 </div>
                 <div className='input'>
                   <label htmlFor="nascimento">Data Nasc.:</label>
-                  <InputMask  mask={'99-99-9999'} name='nascimento' id='nascimento'/>
+                  <InputMask type='date' name='nascimento' id='nascimento'/>
                 </div>
               </dir>
               <div className='receber baseFont'>
@@ -92,26 +100,26 @@ export default function Home() {
                 <div className='redesSelect'>
                   <div className='cardRede' onClick={()=> {setPlataform('whatsapp')}}>
                     <label htmlFor='whatsapp'><img src="/image/bwpp.png" alt="" htmlFor='rede'/></label>
-                    <input type="radio" name="social" id="whatsapp" required defaultChecked/>
+                    <input type="radio" name="social" id="whatsapp"  defaultChecked/>
                   </div>
                   <div className='cardRede' onClick={()=> {setPlataform('telegram')}}>
                     <label htmlFor="telegram"><img src="/image/btele.png" alt="" /></label>
-                    <input type="radio" name="social" id="telegram" required/>
+                    <input type="radio" name="social" id="telegram" />
                   </div>
                   <div className='cardRede' onClick={()=> {setPlataform('e-mail')}}>
                   <label htmlFor="e-mail"><img src="/image/bemail.png" alt="" /></label>
-                    <input type="radio" name="social" id="e-mail" required/>
+                    <input type="radio" name="social" id="e-mail" />
                   </div>
                 </div>
                 { 
                   plataform === 'whatsapp' ?          
                   <InputMask className='redeDado' mask={'(99)99999-9999'} name='socialContact' id='socialContact'/>               
                   : plataform === 'telegram' ? <input type='text'className='redeDado' name='socialContact' id='socialContact'/>
-                  : plataform === 'e-mail' ?<input type='email' className='redeDado' name='socialContact' id='socialContact'/>
+                  : plataform === 'e-mail' ?<Email type='email' className='redeDado' name='socialContact' id='socialContact'/>
                   : null
                 } 
                 <div className='termosdiv'>
-                  <input type="checkbox" name="termos" id="termos" required/>
+                  <input type="checkbox" name="termos" id="termos" />
                   <label htmlFor="termos"> Li e aceito os <span>termos de uso</span></label>
                 </div>
                 <div className='cadastrarbtn'>
@@ -135,7 +143,7 @@ export default function Home() {
             <p>Para receber os lembretes, basta você seguir os passos abaixo:</p>
           </div>
           <div className='funcionaBottom'>
-            <div className="funcionaCard">
+            <a className="funcionaCard" href='#BannerCadastrar'>
               <span className='cardN'>1</span>
               <p> 
                 Cadastre os horários que você 
@@ -143,8 +151,8 @@ export default function Home() {
                 nosso sistema. 
               </p>
               <img src="/image/card1.png" alt="card" />
-            </div>
-            <div className="funcionaCard">
+            </a>
+            <a className="funcionaCard" href='#BannerCadastrar'>
               <span className='cardN'>2</span>
               <p>
                 cadastre seus dados e uma senha, 
@@ -152,8 +160,8 @@ export default function Home() {
                 lembretes aqui pelo site
               </p>
               <img src="/image/card2.png" alt="card" />
-            </div>
-            <div className="funcionaCard">
+            </a>
+            <a className="funcionaCard" href='#BannerCadastrar'>
               <span className='cardN'>3</span>
               <p>
                 Pronto! Todos os dias, ao fim de cada refeição,
@@ -162,8 +170,8 @@ export default function Home() {
                 nenhum tipo de aplicativo no seu celular.
               </p>
               <img src="/image/card3.png" alt="card" />
-            </div>
-            <div className="funcionaCard">
+            </a>
+            <a className="funcionaCard" href='#BannerCadastrar'>
               <span className='cardN exclam'>!</span>
               <p>
                 Se você quiser alterar os horários ou cancelar o envio dos 
@@ -171,7 +179,7 @@ export default function Home() {
                 usando a senha que você criou no momento do cadastro.
               </p>
               <img src="/image/card4.png" alt="card" />
-            </div>
+            </a>
 
           </div>
         </div>
@@ -234,11 +242,11 @@ export default function Home() {
           </div>
           <div className="restBot">
             <div className='left'>
-              <div>
+              <div onClick={()=>{setModalDescadastrar(true)}}>
                 <RiUserUnfollowFill className='lIcon baseColor'/>
                 <BtnFlip text={'descadastrar'}/>
               </div>
-              <div>
+              <div onClick={()=> setModalReportar(true)}>
                 <MdReportProblem className='lIcon baseColor'/>
                 <BtnFlip text={'reportar erro'}/>
               </div>

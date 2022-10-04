@@ -43,13 +43,15 @@ export const BannerDiv = styled.div`
                 align-items: center;
                 margin-right: 20px;
 
-                img {
-                    width: 90%;
-                    min-width: 190px;
-                    height: 350px;
+                .telzap {
+                    width: 95%;
+                    min-width: 200px;
+                    height: 85%;
                 }
+                
                 .gratis {
-                    width: 140px;
+                    margin-top: 15px;
+                    width: 70%;
                     height: 60px;
                 }
             }
@@ -69,6 +71,39 @@ export const BannerDiv = styled.div`
                     height: 15%;
                     margin-top: 5px;
                 }
+                .inputGenero{
+                    
+                    width: 50%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    p{ 
+                        color: #ffba27;
+                        font-weight: 700;
+                    }
+
+                    .generos {
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items: center;
+                        width: 100%;
+                        height: 100%;                        
+                        div {
+                            display: flex;
+                            width: 45%;
+                            label {
+                                color: #ffba27;
+                                font-size: 1.2rem;
+                                cursor: pointer;
+                            }
+                            input {
+                                margin-left: 10px;
+                                width: 17px;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                } 
 
                 .input  {
                     display: flex;
@@ -85,9 +120,9 @@ export const BannerDiv = styled.div`
                         height: 38px;
                         border-radius: 10px;
                         border: 1px black solid
-                    }    
+                    }   
                     
-                    select {
+                    /* select {
                         -webkit-appearance: none;
                         -moz-appearance: none;
                         -ms-appearance: none;
@@ -104,7 +139,7 @@ export const BannerDiv = styled.div`
                         background-position-x: 82px;
                         background-position-y: 15px;
                         background-color: white;
-                    } 
+                    }  */
                 }
 
                 .receber {
@@ -149,7 +184,6 @@ export const BannerDiv = styled.div`
 
                         border-radius: 10px;
                         margin-top: 10px;
-                        border: 1px black solid;
                         text-align: center;
                     }
                     .termosdiv {
@@ -166,6 +200,21 @@ export const BannerDiv = styled.div`
                             
                             span {
                                 font-size: 0.7rem;
+                            }
+                        }
+                        input {
+                            width: 1em;
+                            height: 1em;
+                            background-color: white;
+                            border-radius: 50%;
+                            vertical-align: middle;
+                            border: 1px solid #ddd;
+                            appearance: none;
+                            outline: none;
+                            cursor: pointer;
+                            :checked{
+                                background-color: #6b6bf3;
+                                border: 2px white solid;
                             }
                         }
                     }

@@ -10,6 +10,11 @@ export const ModalDiv = styled.div`
     background-color: #00000049;
     z-index: 99;
 
+    .error-toast {
+        background-color: #ffa2a2;
+        color: white;
+    }
+
     .modalMain {
         width: 90%;
         min-width: 310px;
@@ -20,10 +25,18 @@ export const ModalDiv = styled.div`
         background-color: #71265b;
 
         display: flex;
-        justify-content: center;
+        flex-direction: column;
 
+        .btnClose {
+            margin-left: auto;
+            width: 25px;
+            height: 25px;
+            border-radius: 30px;
+            transform: scale(1.5);
+            cursor: pointer;
+        }
         #formSendCadastro {
-            
+            margin: 0 auto;
             width: 90%;
             max-width: 900px;
             height: auto;
@@ -60,7 +73,7 @@ export const ModalDiv = styled.div`
                         font-size: 0.7rem;
                     }
                 }
-                input[type=text] {
+                input {
                     padding-left: 10px;
                     width: 100%;
                     height: 40px;
