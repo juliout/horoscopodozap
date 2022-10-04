@@ -69,7 +69,7 @@ export const BannerDiv = styled.div`
                     display: flex;
                     align-items: center;
                     height: 15%;
-                    margin-top: 5px;
+                    margin-top: 15px;
                 }
                 .inputGenero{
                     
@@ -117,9 +117,8 @@ export const BannerDiv = styled.div`
                     input {
                         padding-left: 10px;
                         width: 100%;
-                        height: 38px;
+                        height: 34px;
                         border-radius: 10px;
-                        border: 1px black solid
                     }   
                     
                     /* select {

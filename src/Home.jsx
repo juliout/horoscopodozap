@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import InputMask from 'react-input-mask'
-
+import {validadorName} from './functions'
+import InputName from './components/inputName'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import MCadastro from './components/ModalCadastro'
@@ -69,7 +70,7 @@ export default function Home() {
               <div className='forT'>
                 <div className='input'>
                   <label htmlFor="name">Nome:</label>
-                  <input type="text" name='name' id='name' />
+                  <InputName/>
                 </div>
                 <div className='input'>
                   <label htmlFor="email">E-mail:</label>
