@@ -2,6 +2,7 @@ import {useState} from 'react'
 import axios from 'axios'
 import InputMask from 'react-input-mask'
 import {ModalDiv} from './modalStyled'
+import InputName from '../inputName'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -90,7 +91,7 @@ export default function MCadastro({setCadastrar, form}) {
                     <div className='divForm'>
                         <div className='input fullname'>
                             <label htmlFor="name">Nome Completo:</label>
-                            <input type="text" name='name' id='name' required value={name} onChange={(e)=>setName(e.target.value)}/>
+                            <InputName type="text" name='name' id='name' required value={name} onChange={(e)=>setName(e.target.value)}/>
                         </div>
                         <div className='stwo'>
                         <div className='input'>

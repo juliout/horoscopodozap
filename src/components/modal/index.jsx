@@ -1,5 +1,6 @@
 import {ModalMain, DesDiv, RepoDiv} from './styledModal'
 import Email from '../emailAutocompletee'
+import InputName from '../inputName'
 
 export default function Modal({type , Modal}) {
     
@@ -20,7 +21,7 @@ export default function Modal({type , Modal}) {
                             <div className='top'>
                                 <div className='divinput'>
                                     <label htmlFor="">Nome Completo</label>
-                                    <input type="text" name="" id="" />
+                                    <InputName type="text" name="" id="" />
                                 </div>
                                 <div className='divinput'>
                                     <label htmlFor="">Data Nasc.:</label>
@@ -55,7 +56,7 @@ export default function Modal({type , Modal}) {
                         <p>Se você encontrou algum problema em nosso sistema, por favor nos comunique preenchendo os campos abaixo</p>
 
                         <div className='nameEmail'>
-                            <input type="text" name="" id="" placeholder='Nome'/>
+                            <InputName type="text" name="" id="" placeholder='Nome'/>
                             <Email type="email" name="" id="" placeholder='E-mail'/>
                         </div>
                         <input type="text" className='linkinput' placeholder='Link da pagina com erro '/>
